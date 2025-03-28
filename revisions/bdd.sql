@@ -10,9 +10,9 @@
 > Les clefs étrangères sont indiquées par un astérisque (#). */
 
 
-CREATE DATABASE IF NOT EXISTS revision;
+CREATE DATABASE IF NOT EXISTS evenements;
 
-USE revision;
+USE evenements;
 
 CREATE TABLE IF NOT EXISTS utilisateur(
     Id_Utilisateur INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
