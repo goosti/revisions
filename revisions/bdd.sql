@@ -78,3 +78,8 @@ INSERT INTO `evenement` (`Id_Evenement`, `Nom`, `Description`, `Date`, `Heure`, 
 (3, 'Atelier Développement Web', 'Apprenez à créer votre premier site web avec HTML, CSS et JavaScript.', '2025-05-10', '14:00:00', 'Campus Numérique, Bordeaux', 30, 'web-workshop.jpg', 3, 1),
 (4, 'Exposition Art Moderne', 'Découvrez les œuvres d\'artistes contemporains innovants.', '2025-08-05', '10:00:00', 'Galerie d\'Art, Marseille', 100, 'modern-art.webp', 4, 1),
 (5, 'Tournoi de Basketball', 'Compétition amicale ouverte à tous les niveaux.', '2025-09-12', '13:00:00', 'Gymnase Municipal, Lille', 80, 'basketball.webp', 5, 1);
+
+
+
+
+

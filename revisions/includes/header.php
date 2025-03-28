@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Header</title>
+    <title>Evenements</title>
 
     <!-- Style du header -->
     <style>
@@ -63,13 +63,8 @@
             font-size: 18px;
             font-weight: 500;
             padding: 8px 15px;
-            transition: 0.3s ease;
             border-radius: 5px;
             background-color: white;
-        }
-
-        .nav-header a #trombinoscope{
-            align-items: start;
         }
 
         input {
@@ -86,13 +81,28 @@
             background-color: rgb(0, 150, 0);
             border: none;
             border-radius: 15px;
-            padding: 8px;
+            padding: 7px;
             text-align: center;
             align-items: center;
+            margin: 10px 5px;
         }
 
         .submit:hover{
             background-color:rgb(0, 255, 0);
+        }
+
+        .register{
+            text-align: center;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .login{
+            text-align: center;
+            align-items: center;
+            align-content: center;
+            border: solid black 2px;
+            border-radius: 15px;
         }
     </style>
 </head>
@@ -104,6 +114,10 @@
             </div>
             <nav class="nav-header">
                 <a href="../pages/register.php" id="formulaire-inscription">Formulaire d'inscription</a>
+                <a href="../pages/login.php" id="formulaire-connexion">Se connecter</a>
+                <a href="../pages/events.php">Evenements</a>
+                <a href="../pages/profile.php">Profile</a>
+                <a href="../pages/reservation.php">Réservation</a>
             </nav>
         </div>
     </header>

@@ -85,26 +85,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </style>
 </head>
 <body>
-    <h1>Formulaire d'inscription</h1>
+    
 
-    <form action="" method="post">
-            <input type="text" name="nom" placeholder="Nom">
-            <p class="error-message"><?php echo $errors['nom'] ?? '' ?></p>
+    <div class="register">
+        <h1>Formulaire d'inscription</h1><br>
+        <form action="" method="post">
+                <input type="text" name="nom" placeholder="Nom">
+                <p class="error-message"><?php echo $errors['nom'] ?? '' ?></p>
 
-            <input type="text" name="prenom" placeholder="Prénom">
-            <p class="error-message"><?php echo $errors['prenom'] ?? '' ?></p>
+                <input type="text" name="prenom" placeholder="Prénom">
+                <p class="error-message"><?php echo $errors['prenom'] ?? '' ?></p>
 
-            <input type="email" name="email" placeholder="Email">
-            <p class="error-message"><?php echo $errors['email'] ?? '' ?></p>
+                <input type="email" name="email" placeholder="Email">
+                <p class="error-message"><?php echo $errors['email'] ?? '' ?></p>
 
-            <input type="password" name="password" placeholder="Mot de passe">
-            <p class="error-message"><?php echo $errors['password'] ?? '' ?></p>
+                <input type="password" name="password" placeholder="Mot de passe">
+                <p class="error-message"><?php echo $errors['password'] ?? '' ?></p>
 
-            <input type="file" name="photo_profil" placeholder="Photo de profil">
-            <p class="error-message"><?php echo $errors['photo_profil'] ?? '' ?></p>
-            <br>
+                <input type="file" name="photo_profil" placeholder="Photo de profil">
+                <p class="error-message"><?php echo $errors['photo_profil'] ?? '' ?></p>
+                <br>
 
-            <button type="submit" class="submit">S'inscrire</button>
-        </form>
+                <button type="submit" class="submit">S'inscrire</button>
+            </form>
+    </div>
 </body>
 </html>
