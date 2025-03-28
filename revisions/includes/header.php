@@ -72,13 +72,35 @@
             align-items: start;
         }
 
+        input {
+            padding: 7px;
+            margin: 5px;
+            border-radius: 15px;
+            border: solid black 1px;
+            text-align: center;
+            align-items: center;
+        }
+
+        .submit{
+            color: white;
+            background-color: rgb(0, 150, 0);
+            border: none;
+            border-radius: 15px;
+            padding: 8px;
+            text-align: center;
+            align-items: center;
+        }
+
+        .submit:hover{
+            background-color:rgb(0, 255, 0);
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="container-left">
             <div class="logo-header">
-                <a href="../pages/index.php"><img src="../assets/img/logo-manu.png" alt="Logo"></a>
+                <a href="../pages/index.php"><img src="../assets/image/logo-manu.png" alt="Logo"></a>
             </div>
             <nav class="nav-header">
                 <a href="../pages/register.php" id="formulaire-inscription">Formulaire d'inscription</a>

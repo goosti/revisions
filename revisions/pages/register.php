@@ -1,16 +1,18 @@
 <?php
 
 require_once '../includes/header.php';
+include_once '../config/database.php';
 
 $errors = [];
 $nom = $prenom = $email = $password = $photoProfil = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nom = $_POST['nom']??'';
-    $prenom = $_POST['prenom']??'';
-    $email = $_POST['email']??'';
-    $password = $_POST['password']??'';
-    $photoProfil = $_POST['photo_profil']??'';
+    $nom = htmlspecialchars(trim($_POST['nom'] ?? ''));
+    $prenom = htmlspecialchars(trim($_POST['prenom'] ?? ''));
+    $email = htmlspecialchars(trim($_POST['email'] ?? ''));
+    $password = htmlspecialchars(trim($_POST['password'] ?? ''));
+    $photoProfil = $_POST['photo_profil'] ?? 'default.png';
+    $hash_password = password_hash($password, PASSWORD_DEFAULT);
 
     if (empty($nom)){
         $errors['nom']='le nom est obligatoire';
@@ -39,7 +41,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if (empty($errors)) {
-        $sql = "INSERT INTO `utilisateur` (`Email`, `Mot_de_passe`, `Nom`, `Prénom`, `Photo_profil`, `Role`) VALUES (:email, :password, :nom, :prenom, :photo_profil, :role)";
+/*         $sql = "INSERT INTO utilisateur (Email, Mot_de_passe, Nom, Prénom/, Photo_profil) 
+        VALUES (:email, :Mot_de_passe, :Nom, :Prénom/, :Photo_profil)";
+
+        $stmt = $db->prepare($sql);
+        var_dump($email,$password,$nom,$prenom);
+        
+        var_dump($stmt->errorInfo());
+        $stmt->execute(); */
+
+        $query = "INSERT INTO utilisateur(Email, Mot_de_passe, Nom, Prenom, Photo_profil,Role) 
+        VALUES (:Email, :Mot_de_passe, :Nom, :Prenom, :Photo_profil,:Role)";
+        $role="user";
+
+        $stmt = $db->prepare($query);
+
+        $stmt->bindParam(':Email', $email);
+        $stmt->bindParam(':Mot_de_passe', $hash_password);
+        $stmt->bindParam(':Nom', $nom);
+        $stmt->bindParam(':Prenom', $prenom);
+        $stmt->bindParam(':Photo_profil', $photoProfil);
+        $stmt->bindParam(':Role', $role);
+        
+
+
+        $stmt->execute();
     }
 }
 
@@ -74,11 +100,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="password" name="password" placeholder="Mot de passe">
             <p class="error-message"><?php echo $errors['password'] ?? '' ?></p>
 
-            <input type="image" name="photo_profil" placeholder="Photo de profil">
+            <input type="file" name="photo_profil" placeholder="Photo de profil">
             <p class="error-message"><?php echo $errors['photo_profil'] ?? '' ?></p>
             <br>
 
-            <button type="submit">S'inscrire</button>
+            <button type="submit" class="submit">S'inscrire</button>
         </form>
 </body>
 </html>

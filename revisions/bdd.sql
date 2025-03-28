@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS utilisateur(
     Email VARCHAR(255) NOT NULL,
     Mot_de_passe VARCHAR(255) NOT NULL,
     Nom VARCHAR(255) NOT NULL,
-    Prénom VARCHAR(255) NOT NULL,
+    Prenom VARCHAR(255) NOT NULL,
     Photo_profil VARCHAR(255) NULL,
     Date_inscription VARCHAR(255) NOT NULL,
     Role VARCHAR(255) NOT NULL
@@ -32,11 +32,11 @@ CREATE TABLE IF NOT EXISTS evenement(
     Date DATE NOT NULL,
     Heure INT NOT NULL,
     Lieu VARCHAR(255) NOT NULL,
-    Capacité_Max INT NOT NULL,
+    Capacite_Max INT NOT NULL,
     Image VARCHAR(255) NOT NULL,
-    Id_Catégorie INT NOT NULL,
-    Créé_par VARCHAR(255) NOT NULL,
-    FOREIGN KEY (Id_Catégorie) REFERENCES categorie(Id_Catégorie)
+    Id_Categorie INT NOT NULL,
+    Cree_par VARCHAR(255) NOT NULL,
+    FOREIGN KEY (Id_Categorie) REFERENCES categorie(Id_Categorie)
 )ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS reservation (
@@ -51,13 +51,13 @@ CREATE TABLE IF NOT EXISTS reservation (
 )ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS categorie (
-    Id_Catégorie INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    Id_Categorie INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     Nom VARCHAR(255) NOT NULL,
     Description TEXT NOT NULL
 )ENGINE=InnoDB;
 
 
-INSERT INTO `categorie` (`Id_Catégorie`, `Nom`, `Description`) VALUES
+INSERT INTO `categorie` (`Id_Categorie`, `Nom`, `Description`) VALUES
 (1, 'Conférence', 'Événements professionnels et éducatifs'),
 (2, 'Concert', 'Performances musicales et spectacles'),
 (3, 'Atelier', 'Sessions pratiques et interactives'),
@@ -66,13 +66,13 @@ INSERT INTO `categorie` (`Id_Catégorie`, `Nom`, `Description`) VALUES
 
 
 
-INSERT INTO `utilisateur` (`Id_Utilisateur`, `Email`, `Mot_de_passe`, `Nom`, `Prénom`, `Photo_profil`, `Date_inscription`, `Role`) VALUES
+INSERT INTO `utilisateur` (`Id_Utilisateur`, `Email`, `Mot_de_passe`, `Nom`, `Prenom`, `Photo_profil`, `Date_inscription`, `Role`) VALUES
 (1, 'admin@example.com', '$2y$10$8MNE.3xYYjA4Vbgwk8JXZOVOQwYVQiXBkJfnAUHlBTFN5MqB4VLqe', 'Admin', 'Super', 'default.jpg', '2025-03-28 09:34:46', 'admin'),
 (2, 'user@example.com', '$2y$10$8MNE.3xYYjA4Vbgwk8JXZOVOQwYVQiXBkJfnAUHlBTFN5MqB4VLqe', 'Utilisateur', 'Test', 'default.jpg', '2025-03-28 09:34:46', 'user');
 
 
 
-INSERT INTO `evenement` (`Id_Evenement`, `Nom`, `Description`, `Date`, `Heure`, `Lieu`, `Capacité_Max`, `Image`, `Id_Catégorie`, `Créé_par`) VALUES
+INSERT INTO `evenement` (`Id_Evenement`, `Nom`, `Description`, `Date`, `Heure`, `Lieu`, `Capacite_Max`, `Image`, `Id_Categorie`, `Cree_par`) VALUES
 (1, 'Conférence PHP 2025', 'Découvrez les dernières nouveautés de PHP et les meilleures pratiques de développement.', '2025-06-15', '09:00:00', 'Centre de Conférences, Paris', 200, 'conf-php.png', 1, 1),
 (2, 'Concert Jazz au Parc', 'Une soirée jazz en plein air avec les meilleurs musiciens de la région.', '2025-07-20', '20:00:00', 'Parc Municipal, Lyon', 500, 'jazz-concert.jpg', 2, 1),
 (3, 'Atelier Développement Web', 'Apprenez à créer votre premier site web avec HTML, CSS et JavaScript.', '2025-05-10', '14:00:00', 'Campus Numérique, Bordeaux', 30, 'web-workshop.jpg', 3, 1),
