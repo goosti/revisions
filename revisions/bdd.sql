@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS utilisateur(
     Nom VARCHAR(255) NOT NULL,
     Prénom VARCHAR(255) NOT NULL,
     Photo_profil VARCHAR(255) NULL,
-    Date_inscriptiont VARCHAR(255) NOT NULL,
+    Date_inscription VARCHAR(255) NOT NULL,
     Role VARCHAR(255) NOT NULL
 )ENGINE=InnoDB;
 
