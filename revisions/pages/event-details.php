@@ -43,7 +43,7 @@ if($data->rowCount() <= 0){
                     <p><strong>Capacité Max :</strong> ' . htmlspecialchars($result['Capacite_Max']) . '</p>
                     <p><strong>Créé par :</strong> ' . htmlspecialchars($result['Cree_par']) . '</p>
                 </div>
-                <a href="../pages/my-reservation.php"><button class="detail">Réserver</button></a>
+                <a href="../pages/my-reservation.php?id=' . $id . '"><button class="detail">Réserver</button></a>
             </div>
         </div>';
     }
